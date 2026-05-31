@@ -1,6 +1,6 @@
 CERT_DIR := ./config/certs
 # The wildcard TLD needs an extra label, so use docker.localhost instead.
-CERT_HOSTS := "*.docker.localhost" localhost 127.0.0.1 ::1
+CERT_HOSTS ?= "*.docker.localhost" localhost 127.0.0.1 ::1
 
 .PHONY: help
 # ref: https://postd.cc/auto-documented-makefile/

@@ -2,6 +2,7 @@
 config/certs/
 
 # Environment variables
+.envrc
 .env
 .env.local
 .env.*.local

@@ -23,6 +23,7 @@ make setup
 ```
 
 This installs the local CA if needed and generates certificates under `config/certs/`.
+If you want to override the host list, copy `.envrc.example` to `.envrc` and edit `CERT_HOSTS`.
 
 ## Start and stop
 
