@@ -1,4 +1,5 @@
-CERT_DIR = ./config/certs
+CERT_DIR := ./config/certs
+CERT_HOSTS := "*.localhost" localhost 127.0.0.1 ::1
 
 .PHONY: help
 # ref: https://postd.cc/auto-documented-makefile/
@@ -43,7 +44,7 @@ setup: ## Setup SSL certificates for local development using mkcert
 	#    Note: Overwrites if already exists
 	mkcert -cert-file $(CERT_DIR)/localhost.crt \
 	       -key-file $(CERT_DIR)/localhost.key \
-	       "*.localhost" localhost 127.0.0.1 ::1
+	       $(CERT_HOSTS)
 
 	@echo "✨ Certificate creation completed! (under $(CERT_DIR)/)"
 
