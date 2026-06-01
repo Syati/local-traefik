@@ -4,12 +4,7 @@ api:
 providers:
   docker:
     exposedByDefault: false
-  file:
-    directory: /etc/traefik/config
-    watch: true
 
 entryPoints:
   web:
     address: ":80"
-  websecure:
-    address: ":443"

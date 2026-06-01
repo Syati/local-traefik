@@ -6,24 +6,12 @@ Local Traefik setup for development.
 
 - Traefik v3 running with Docker Compose
 - HTTP on `http://localhost`
-- HTTPS on `https://localhost`
 - Dashboard on `http://localhost:8080`
-- Local certificates generated with `mkcert`
 
 ## Requirements
 
 - Docker
 - Docker Compose
-- `mkcert`
-
-## Setup
-
-```sh
-make setup
-```
-
-This installs the local CA if needed and generates certificates under `config/certs/`.
-If you want to override the host list, copy `.envrc.example` to `.envrc` and edit `CERT_HOSTS`.
 
 ## Start and stop
 
@@ -36,4 +24,4 @@ make down
 ## Notes
 
 - The repository is intended for local development only.
-- `config/certs/` is ignored in git because the certificates are generated locally.
+- The TLS-enabled configuration is available on the `tls` branch.
