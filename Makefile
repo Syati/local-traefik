@@ -25,4 +25,10 @@ up: ## Start Traefik using Docker Compose
 .PHONY: stop
 stop: ## Stop Traefik
 	@echo "🛑 Stopping Traefik..."
+	docker compose stop
+
+.PHONY: down
+down: ## Stop and clean up Traefik
+	@echo "🧹 Stopping and cleaning up Traefik..."
+	docker compose down
 
