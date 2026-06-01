@@ -17,34 +17,6 @@ help: ## Print help
 			} \
 		}' \
 		$(MAKEFILE_LIST)
-
-
-
-
-.PHONY: setup
-setup: ## Setup SSL certificates for local development using mkcert
-	@echo "🔐 Setting up SSL certificates for local development..."
-	
-	# 1. Check if mkcert is installed
-	@if ! command -v mkcert > /dev/null; then \
-		echo "❌ mkcert not found. Please run 'brew install mkcert'."; \
-		exit 1; \
-	fi
-
-	# 2. Install/trust the custom CA on Mac (skipped if already done)
-	mkcert -install
-
-	# 3. Create certificate output directory
-	mkdir -p $(CERT_DIR)
-
-	# 4. Generate project-specific certificates using local CA (private + public key pair)
-	#    Note: Overwrites if already exists
-	mkcert -cert-file $(CERT_DIR)/localhost.crt \
-	       -key-file $(CERT_DIR)/localhost.key \
-	       $(CERT_HOSTS)
-
-	@echo "✨ Certificate creation completed! (under $(CERT_DIR)/)"
-
 .PHONY: up
 up: ## Start Traefik using Docker Compose
 	@echo "🚀 Starting Traefik..."
